@@ -30,7 +30,10 @@ export function Navbar() {
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+
+    window.addEventListener('scroll', onScroll, {
+      passive: true,
+    });
 
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -39,7 +42,7 @@ export function Navbar() {
     <header
       className={cn(
         'fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-power3',
-        scrolled ? 'glass-nav shadow-soft py-3' : 'bg-transparent py-6'
+        scrolled ? 'glass-nav shadow-soft py-4' : 'bg-transparent py-7'
       )}
     >
       <div className="container-narrow flex items-center justify-between">
@@ -100,7 +103,7 @@ export function Navbar() {
         <Sheet>
           <SheetTrigger asChild>
             <button
-              className="lg:hidden text-white p-2 -mr-2"
+              className="lg:hidden p-2 -mr-2 text-white"
               aria-label="Open navigation menu"
             >
               <Menu className="h-6 w-6" />
@@ -114,6 +117,7 @@ export function Navbar() {
                 alt="Interpetro Logo"
                 width={220}
                 height={75}
+                priority
                 className="h-16 w-auto object-contain"
               />
             </SheetTitle>
@@ -124,7 +128,7 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     className={cn(
-                      'py-3 text-lg font-semibold border-b border-white/10 transition-colors',
+                      'border-b border-white/10 py-3 text-lg font-semibold transition-colors',
                       pathname === link.href
                         ? 'text-brand-green'
                         : 'text-white hover:text-brand-green'
