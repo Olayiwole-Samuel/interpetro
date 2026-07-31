@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu } from 'lucide-react';
+import logo from '@/assests/logo.png';
 
 import { cn } from '@/lib/utils';
 import { navLinks } from '@/lib/site-data';
@@ -49,7 +50,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" aria-label="Interpetro home">
           <Image
-            src="/logo.png"
+            src={logo}
             alt="Interpetro Logo"
             width={260}
             height={90}
