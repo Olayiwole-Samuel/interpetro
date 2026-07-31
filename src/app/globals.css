@@ -1,0 +1,76 @@
+@import url('@fontsource/inter/400.css');
+@import url('@fontsource/inter/500.css');
+@import url('@fontsource/inter/600.css');
+@import url('@fontsource/inter/700.css');
+@import url('@fontsource/inter/800.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink antialiased;
+    font-feature-settings: 'ss01' 1, 'cv01' 1;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold tracking-tight text-ink;
+  }
+
+  ::selection {
+    background-color: #0057B8;
+    color: white;
+  }
+
+  /* Visible keyboard focus throughout */
+  :focus-visible {
+    outline: 2px solid #0057B8;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .container-narrow {
+    @apply max-w-[1200px] mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  .section {
+    @apply py-24 sm:py-28 lg:py-32;
+  }
+
+  .eyebrow {
+    @apply text-brand-blue font-semibold text-xs tracking-[0.18em] uppercase;
+  }
+
+  .glass-nav {
+    background: rgba(10, 27, 51, 0.72);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
